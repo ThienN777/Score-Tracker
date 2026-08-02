@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Tracker</title>
+    <meta name="description" content="A simple score tracker between 2 players.">
+    <meta name="author" content="Thien Nguyen">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p class="author">By: Thien Nguyen</p>
+    <div class="container">
+        <h1>Score Tracker</h1>
+        
+        <div class="playerContainer">
+            <h2>Player 1</h2>
+            <h2>Player 2</h2>
+        </div>
+
+        <div class="scoreContainer">
+            <h3>Score: <span id="score1">0</span></h3>
+            <h3>Score: <span id="score2">0</span></h3>
+        </div>
+
+        <div class="buttonContainer">
+            <div class="Player1">
+                <button class="increaseBtn" id="inc1">Increase</button>
+                <button class="decreaseBtn" id="dec1">Decrease</button>
+                <button class="resetBtn" id="res1">Reset</button>
+            </div>
+            <div class="Player2">
+                <button class="increaseBtn" id="inc2">Increase</button>
+                <button class="decreaseBtn" id="dec2">Decrease</button>
+                <button class="resetBtn" id="res2">Reset</button>
+            </div>
+        </div>
+
+        <button class="endBtn">End Game</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
