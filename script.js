@@ -19,15 +19,60 @@ function reset(player) {
     score.textContent = 0;
 }
 
+function edit(player) {
+    const playerName = document.getElementById('p' + player + 'Name');
+    const input = document.createElement('input');
+    input.type = "text";
+    input.classList.add("editInput")
+    input.value = playerName.textContent;
+    input.maxLength = 20;
+    if (player === 2) {
+        input.style.textAlign = "right";
+    }
+
+    let finished = false;
+
+    playerName.replaceWith(input);
+    input.focus();
+    document.getElementById('editBtn' + player).style.display = 'none';
+
+    function finishEdit() {
+        if (finished) {
+            return;
+        }
+        finished = true;
+
+        const name = input.value.trim();
+        if (name === "") {
+            playerName.textContent = "Player " + player;
+        }else {
+            playerName.textContent = name;
+        }
+        input.replaceWith(playerName);
+        document.getElementById('editBtn' + player).style.display = 'flex';
+    }
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            finishEdit();
+        }
+    })
+
+    input.addEventListener("blur", finishEdit);
+}
+
+
 function endGame() {
     const s1 = Number(score1.textContent);
     const s2 = Number(score2.textContent);
+    const player1 = document.getElementById("p1Name");
+    const player2 = document.getElementById("p2Name");
     if (s1 > s2) {
-        alert("Player 1 wins");
+        alert(player1.textContent + " wins");
     }else if(s1 === s2) {
         alert("Tie game")
     }else {
-        alert("Player 2 wins");
+        alert(player2.textContent + " wins");
     }
     score1.textContent = 0;
     score2.textContent = 0;
@@ -41,5 +86,8 @@ document.getElementById('dec2').addEventListener('click', () => decrease(2));
 
 document.getElementById('res1').addEventListener('click', () => reset(1));
 document.getElementById('res2').addEventListener('click', () => reset(2));
+
+document.getElementById('editBtn1').addEventListener('click', () => edit(1));
+document.getElementById('editBtn2').addEventListener('click', () => edit(2));
 
 document.querySelector('.endBtn').addEventListener('click', endGame); 
