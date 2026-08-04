@@ -6,9 +6,7 @@ body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 }
-
 
 
 .author {
@@ -28,6 +26,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/*  Settings    */
 
 .settingsBtnContainer {
     position: absolute;
@@ -58,7 +58,7 @@ body {
 .settings {
     position: absolute;
     top: 100px;
-    right: 20px;
+    right: 60px;
 
     border: 2px solid black;
     padding: 20px;
@@ -72,6 +72,28 @@ body {
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
+.settingsOptions{
+    list-style: none;
+    padding: 0;
+}
+
+.settings > .settingTitle{
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.applyCancelContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+
+/* Score Tracker */
 .container > h1 {
     text-align: center;
 }
@@ -111,6 +133,27 @@ body {
     background-color: rgb(182, 182, 10);
 }
 
+.editContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.editInput {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    border: none;
+}
+
+.editInput:focus {
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Score Incrementer/Decrementer */
 .scoreContainer {
     display: flex;
     justify-content: space-between;
@@ -163,28 +206,15 @@ button:active {
     background-color: #8f0b0b;
 }
 
-.editContainer {
-    display: flex;
-    justify-content: center;
-}
 
-.editInput {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    background-color: transparent;
-    border: none;
-}
-
-.editInput:focus {
-    outline: none;
-    border: none;
-    font-size: 1.5em;
-    font-weight: bold;
-}
 
 .hidden {
     opacity: 0;
     visibility: hidden;
     transform: translateX(-20px);
+}
+
+.disable {
+    pointer-events: none;
+    user-select: none;
 }

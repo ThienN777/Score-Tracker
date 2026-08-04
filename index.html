@@ -50,10 +50,17 @@
     </div>
 
     <section id="settings" class="settings hidden">
-        Settings
+        <span class="settingTitle">Settings</span>
         <ul class="settingsOptions">
-            <li id="negatives">Allow Negative Score</li>
+            <li>
+                <input type="checkbox" id="negative">
+                <label for="negative">Negative Score</label>
+            </li>
         </ul>
+        <div class="applyCancelContainer">
+            <button id="apply">Apply</button>
+            <button id="cancel">Cancel</button>
+        </div>
     </section>
 
     <script src="script.js"></script>

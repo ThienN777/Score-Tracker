@@ -1,5 +1,8 @@
 const score1 = document.getElementById('score1');
 const score2 = document.getElementById('score2');
+const settingBoxes = document.querySelectorAll('input[type="checkbox"]');
+let savedSettings = {};
+let negatives = false;
 
 function increase(player) {
     const score = document.getElementById("score" + player);
@@ -9,8 +12,12 @@ function increase(player) {
 function decrease(player) {
     const score = document.getElementById("score" + player);
     const tempScore = Number(score.textContent) - 1;
-    if (tempScore >= 0) {
+    if (negatives) {
         score.textContent = tempScore;
+    }else {
+        if (tempScore >= 0) {
+            score.textContent = tempScore;
+        }
     }
 }
 
@@ -78,9 +85,41 @@ function endGame() {
     score2.textContent = 0;
 }
 
-function openSettings() {
+function toggleSettings() {
     const settings = document.getElementById('settings');
     settings.classList.toggle("hidden");
+}
+
+function saveSettings() {
+    settingBoxes.forEach(checkbox => {
+        savedSettings[checkbox.id] = checkbox.checked;
+    });
+}
+
+function revertSettings() {
+    settingBoxes.forEach(checkbox => {
+        checkbox.checked = savedSettings[checkbox.id];
+    })
+}
+
+function applySettings() {
+    for (let id in savedSettings) {
+
+        if (id === 'negative') {
+            if (savedSettings[id]) {
+                negatives = true;
+            }else {
+                negatives = false;
+                if (Number(score1.textContent) < 0) {
+                    reset(1);
+                }
+                if (Number(score2.textContent) < 0) {
+                    reset(2);
+                }
+            }
+        }
+
+    }
 }
 
 document.getElementById('inc1').addEventListener('click', () => increase(1));
@@ -97,4 +136,22 @@ document.getElementById('editBtn2').addEventListener('click', () => edit(2));
 
 document.querySelector('.endBtn').addEventListener('click', endGame); 
 
-document.getElementById('settingsBtn').addEventListener('click', openSettings);
+document.getElementById('settingsBtn').addEventListener('click', () => {
+    toggleSettings();
+    saveSettings();
+    document.getElementById('apply').classList.remove("disable");
+    document.getElementById('cancel').classList.remove("disable");
+});
+
+document.getElementById('apply').addEventListener('click', (e) => {
+    toggleSettings();
+    saveSettings();
+    applySettings();
+    e.currentTarget.classList.add("disable");
+})
+
+document.getElementById('cancel').addEventListener('click', (e) => {
+    toggleSettings();
+    revertSettings();
+    e.currentTarget.classList.add("disable");
+})
