@@ -12,6 +12,9 @@
 <body>
     <p class="author">By: Thien Nguyen</p>
     <div class="container">
+        <div class="settingsBtnContainer">
+            <button id="settingsBtn" class="settingsBtn"> <span class="gear">⚙</span></button>
+        </div>
         <h1>Score Tracker</h1>
         
         <div class="playerContainer">
@@ -46,6 +49,12 @@
         <button class="endBtn">End Game</button>
     </div>
 
+    <section id="settings" class="settings hidden">
+        Settings
+        <ul class="settingsOptions">
+            <li id="negatives">Allow Negative Score</li>
+        </ul>
+    </section>
 
     <script src="script.js"></script>
 </body>

@@ -6,8 +6,10 @@ body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    
+    gap: 20px;
 }
+
+
 
 .author {
     position: absolute;
@@ -16,6 +18,7 @@ body {
 }
 
 .container {
+    position: relative;
     width: 65%;
     height: 50vh;
     padding: 0 20px;
@@ -24,6 +27,49 @@ body {
 
     display: flex;
     flex-direction: column;
+}
+
+.settingsBtnContainer {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.settingsBtn {
+    background-color: transparent;
+    border: 2px groove black;
+    font-size: 30px;
+    padding: 5px 10px;
+}
+
+.settingsBtn:hover {
+    background-color: rgb(137, 176, 189);
+}
+
+.gear {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.settingsBtn:active .gear{
+    transform: rotate(90deg);
+}
+
+.settings {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
 .container > h1 {
@@ -135,4 +181,10 @@ button:active {
     border: none;
     font-size: 1.5em;
     font-weight: bold;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
 }

@@ -78,6 +78,11 @@ function endGame() {
     score2.textContent = 0;
 }
 
+function openSettings() {
+    const settings = document.getElementById('settings');
+    settings.classList.toggle("hidden");
+}
+
 document.getElementById('inc1').addEventListener('click', () => increase(1));
 document.getElementById('inc2').addEventListener('click', () => increase(2));
 
@@ -91,3 +96,5 @@ document.getElementById('editBtn1').addEventListener('click', () => edit(1));
 document.getElementById('editBtn2').addEventListener('click', () => edit(2));
 
 document.querySelector('.endBtn').addEventListener('click', endGame); 
+
+document.getElementById('settingsBtn').addEventListener('click', openSettings);
