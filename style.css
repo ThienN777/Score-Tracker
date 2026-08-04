@@ -20,6 +20,10 @@ body {
     height: 50vh;
     padding: 0 20px;
     border: 2px solid black;
+    gap: 40px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .container > h1 {
@@ -28,9 +32,13 @@ body {
 
 .endBtn {
     display: block;
-    margin: 20px auto 0;
+    margin: auto auto -20px;
     background-color: red;
-    border: 5px solid maroon;
+    color: white;
+    border: 2px solid #8b0000;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
 }
 
 .playerContainer {
@@ -106,7 +114,7 @@ button:active {
 }
 
 .endBtn:hover {
-    background-color: rgb(199, 18, 18);
+    background-color: #8f0b0b;
 }
 
 .editContainer {
